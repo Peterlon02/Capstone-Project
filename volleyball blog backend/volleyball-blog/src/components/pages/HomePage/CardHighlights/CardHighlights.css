@@ -1,0 +1,20 @@
+.thumbnail-wrapper {
+    position: relative; /* Imposta il contenitore dell'immagine come riferimento per il posizionamento assoluto dei suoi figli */
+    display: inline-block; /* Consente al contenitore di adattarsi alla dimensione del suo contenuto */
+  }
+  
+  .thumbnail-wrapper img {
+    display: block; /* Fa sì che l'immagine si comporti come un blocco, eliminando eventuali spazi sotto l'immagine */
+    width: 100%; /* Rende l'immagine responsiva, adattandola alla larghezza del contenitore */
+  }
+  
+  .play-icon {
+    position: absolute; /* Posiziona l'icona assolutamente rispetto al suo contenitore più vicino con posizione relativa (thumbnail-wrapper) */
+    top: 50%; /* Posiziona il punto centrale dell'icona al 50% dell'altezza del contenitore */
+    left: 50%; /* Posiziona il punto centrale dell'icona al 50% della larghezza del contenitore */
+    transform: translate(-50%, -50%); /* Sposta l'icona verso sinistra e verso l'alto del 50% della sua stessa dimensione, centrando perfettamente l'icona */
+    font-size: 3rem; /* Imposta la dimensione dell'icona */
+    color: red; /* Imposta il colore dell'icona su bianco */
+    padding: 10px; /* Aggiunge del padding intorno all'icona */
+    border-radius: 50%; /* Rende lo sfondo dell'icona circolare */
+  }
