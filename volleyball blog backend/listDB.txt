@@ -1,0 +1,14 @@
+List all Leagues 
+/api/v1/json/331685/search_all_leagues.php?s=Volleyball
+
+List all Seasons in a League
+/api/v1/json/331685/search_all_seasons.php?id=4544
+
+List All teams details in a league by Id 
+/api/v1/json/331685/lookup_all_teams.php?id=
+
+List All players in a team by Team Id 
+/api/v1/json/331685/lookup_all_players.php?id=
+
+Player Details by Id
+/api/v1/json/331685/lookupplayer.php?id=
