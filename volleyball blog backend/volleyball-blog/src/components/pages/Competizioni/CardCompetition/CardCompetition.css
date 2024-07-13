@@ -1,29 +1,29 @@
 
 
-.card {
+.card-competition {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 1rem;
     border-radius: 8px;
-    margin: 1rem;
-    height: 100%; /* Assicura che la card occupi l'intera altezza disponibile */
+
 }
 
-.card .container-title {
+ .container-title {
     height: 50px; /* Altezza fissa per il contenitore del titolo */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.card img {
+.img-competition {
     max-height: 150px; /* Altezza massima per le immagini */
     width: auto;
     height: auto;
     object-fit: contain; /* Mantiene le proporzioni dell'immagine */
     margin-bottom: 1rem; /* Spazio tra l'immagine e il resto del contenuto */
+    margin-top: 1rem;
 }
 
 
@@ -33,7 +33,7 @@
     margin: 0.5rem 0;
 }
 
-.card .description {
+ .description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3; /* Limita a 3 righe */

@@ -12,3 +12,6 @@ List All players in a team by Team Id
 
 Player Details by Id
 /api/v1/json/331685/lookupplayer.php?id=
+
+
+
