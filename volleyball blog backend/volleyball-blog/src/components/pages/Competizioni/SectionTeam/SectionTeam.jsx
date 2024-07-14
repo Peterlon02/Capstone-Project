@@ -2,6 +2,7 @@ import React from "react"
 import { useParams } from "react-router-dom";
 import { useEffect,useState } from "react";
 import axios from "axios";
+import './SectionTeam.css'
 
 function SectionTeam(){
     
@@ -23,13 +24,7 @@ function SectionTeam(){
       }, [teamId])
     return(
         <div className="">
-            {players !=null && (
-                players.map((player)=>(
-                    <h1>{player.idPlayer}</h1>
-                ))
-            )}
-             
-            
+            {teamId}
         </div>
     )
 }

@@ -5,4 +5,9 @@
 
 .text-season{
     font-size: larger;
+    color: rgb(60, 161, 60);
+}
+
+.text-season:hover{
+    color: greenyellow;
 }

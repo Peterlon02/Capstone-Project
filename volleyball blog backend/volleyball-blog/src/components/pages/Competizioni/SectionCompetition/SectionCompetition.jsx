@@ -6,6 +6,8 @@ import ContainerImg from './ComponentsCompetition/ContainerImg/ContainerImg'
 import ContainerDetails from './ComponentsCompetition/ContainerDetails/ContainerDetails'
 import ContainerNext from './ComponentsCompetition/ContainerNext/ContainerNext'
 import ContainerSeason from'./ComponentsCompetition/ContainerSeason/ContainerSeason'
+import ContainerTeams from './ComponentsCompetition/ContainerTeams/ContainerTeams'
+import ContainerFanart from './ComponentsCompetition/ContainerFanart/ContainerFanart'
 
 function SectionCompetition(){
     const {competitionId}=useParams()/* Id della competizione */
@@ -76,7 +78,7 @@ function SectionCompetition(){
       }, [])
 
     return (
-          <div className="container-fluid main-container ">
+          <div className="container-fluid main-container pb-5">
             <div className="container">
               {league.length>0 ? (
               <div className="row pt-2">
@@ -100,6 +102,7 @@ function SectionCompetition(){
                     events.slice(0,10).map((event)=>{
                     return(
                       <ContainerNext 
+                    path={`/competizioni/${league[0].idLeague}/match/${event.idEvent}`}
                     date={event.dateEvent}
                     homename={event.strHomeTeam}
                     homebadge={event.strHomeTeamBadge}
@@ -114,6 +117,7 @@ function SectionCompetition(){
                   {pastEvents.slice(0,10).map((pastEvent)=>{
                     return(
                       <ContainerNext 
+                      path={`/competizioni/${league[0].idLeague}/match/${pastEvent.idEvent}`}
                     date={pastEvent.dateEvent}
                     homename={pastEvent.strHomeTeam}
                     homebadge={pastEvent.strHomeTeamBadge}
@@ -133,12 +137,42 @@ function SectionCompetition(){
                       return(
                         <div className="col-3 mt-3">
                           <ContainerSeason 
+                            path={`/competizioni/${league[0].idLeague}/season/${season.strSeason}`}
                             season={season.strSeason}
                           />
                         </div>
                       )
                     })}
                   </div>
+                  <h6 className="text-light mt-4">Teams</h6>
+                  <div className="row">
+                  {teams.map((team)=>{
+                    return(
+                      <div className="col-3">
+                        <ContainerTeams 
+                        path={`/competizioni/${league[0].idLeague}/team/${team.idTeam}`}
+                        img={team.strBadge}
+                        nameTeam={team.strTeam}
+                      />
+                      </div>
+                    )
+                  })}
+                  </div>
+                 <h6 className="text-light mt-4">Trophy Icon</h6>
+                 <div className="container d-flex justify-content-center">
+                 <img src={league[0].strTrophy} className="img-fluid img-trophy "></img>
+                 </div>
+                 <h6 className="text-light mt-4">Fanart</h6>
+                 <ContainerFanart 
+                  img1={league[0].strFanart1}
+                  img2={league[0].strFanart2}
+                  img3={league[0].strFanart3}
+                  img4={league[0].strFanart4}
+                 />
+                 <ContainerImg 
+                  title='Banner'
+                  img={league[0].strBanner}
+                 />
                 </div>
               </div>
                 ): <p>Caricamento</p> }

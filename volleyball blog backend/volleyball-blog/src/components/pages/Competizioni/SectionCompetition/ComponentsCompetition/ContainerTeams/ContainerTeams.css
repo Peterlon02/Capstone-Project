@@ -1,0 +1,12 @@
+.img-team{
+    max-height: 10rem;
+    object-fit: contain;
+}
+
+.name-team{
+    color: rgb(60, 161, 60);
+}
+
+.name-team:hover{
+    color: greenyellow;
+}
