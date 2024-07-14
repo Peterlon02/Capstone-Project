@@ -1,0 +1,48 @@
+.imgbadge{
+    max-height: 1rem;
+    margin-left: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.img-badge{
+    max-height: 1rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.name-team{
+    color: rgb(60, 161, 60);
+
+}
+
+.container-team{
+    width: 12rem;
+    
+}
+
+
+@media(max-width:1400px){
+    .trattino{
+        margin: 0 1rem;
+    }
+}
+
+@media(max-width:510px){
+    .main-container{
+        font-size:small;
+    }
+
+    .name-team{
+        font-size:small;
+    }
+}
+
+@media(max-width:380px){
+    .main-container{
+        font-size:smaller;
+    }
+
+    .name-team{
+        font-size:smaller;
+    }
+}

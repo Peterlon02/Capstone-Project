@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import './SectionCompetition.css'
-import ContainerImg from './ContainerImg/ContainerImg'
-import ContainerDetails from './ContainerDetails/ContainerDetails'
-import ContainerNext from './ContainerNext/ContainerNext'
+import ContainerImg from './ComponentsCompetition/ContainerImg/ContainerImg'
+import ContainerDetails from './ComponentsCompetition/ContainerDetails/ContainerDetails'
+import ContainerNext from './ComponentsCompetition/ContainerNext/ContainerNext'
+import ContainerSeason from'./ComponentsCompetition/ContainerSeason/ContainerSeason'
+
 function SectionCompetition(){
     const {competitionId}=useParams()/* Id della competizione */
     const [teams, setTeams]=useState([])/* teams di quella competizione */
     const [seasons, setSeasons]=useState([])/*lista delle seasons di  quella competizione */
     const [league, setLeague]=useState([])
     const [events, setEvents]=useState([])
+    const [pastEvents, setPastEvents]=useState([])
 
     useEffect(()=>{
         const fetchTeams =async()=>{
@@ -60,6 +63,18 @@ function SectionCompetition(){
         fetchNextEventsLeague()
       }, [])
 
+      useEffect(()=>{
+        const fetchPastEventsLeague =async()=>{
+          try{
+            const response= await axios.get(`http://localhost:5000/api/pastevent/`+`${competitionId}`)
+            setPastEvents(response.data.events)
+          }catch(error){
+            console.error('ERRORE', error)
+          }
+        }
+        fetchPastEventsLeague()
+      }, [])
+
     return (
           <div className="container-fluid main-container ">
             <div className="container">
@@ -77,7 +92,7 @@ function SectionCompetition(){
                   <ContainerDetails titleDetail='Location' detail={league[0].strCountry}/>
                   <ContainerDetails titleDetail='Gender' detail={league[0].strGender}/>
                 </div>
-                <div className="col-9 ">
+                <div className="col-md-9 ">
                 <h6 className="text-light">Logo</h6>
                 <img src={league[0].strLogo} className="img-logo"></img>
                 <h6 className="text-light mt-4"> Upcoming</h6>
@@ -95,6 +110,35 @@ function SectionCompetition(){
                     )
                   })
                   ) : <h6 className="text-light">None...</h6> }
+                  <h6 className="text-light mt-4">Results</h6>
+                  {pastEvents.slice(0,10).map((pastEvent)=>{
+                    return(
+                      <ContainerNext 
+                    date={pastEvent.dateEvent}
+                    homename={pastEvent.strHomeTeam}
+                    homebadge={pastEvent.strHomeTeamBadge}
+                    awayname={pastEvent.strAwayTeam}
+                    awaybadge={pastEvent.strAwayTeamBadge}
+                    time={pastEvent.strTime}
+                    homeresult={pastEvent.intHomeScore}
+                    awayresult={pastEvent.intAwayScore}
+                  />
+                    )
+                  })}
+                  <h6 className="text-light mt-4">Description</h6>
+                  <p className="text-light">{league[0].strDescriptionEN}</p>
+                  <h6 className="text-light mt-4">Seasons</h6>
+                  <div className="row ">
+                    {seasons.map((season)=>{
+                      return(
+                        <div className="col-3 mt-3">
+                          <ContainerSeason 
+                            season={season.strSeason}
+                          />
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
                 ): <p>Caricamento</p> }
