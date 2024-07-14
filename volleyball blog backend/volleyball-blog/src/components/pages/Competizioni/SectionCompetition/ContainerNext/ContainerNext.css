@@ -1,0 +1,20 @@
+.imgbadge{
+    max-height: 1rem;
+    margin-left: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.img-badge{
+    max-height: 1rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.name-team{
+    color: rgb(60, 161, 60);
+}
+
+.container-team{
+    width: 12rem;
+    
+}

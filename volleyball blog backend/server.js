@@ -11,7 +11,8 @@ const team= require('./routes/teamDetails')
 const players= require('./routes/listPlayer')
 const seasons=require('./routes/seasons')
 const events=require('./routes/allEvents')
-
+const league=require('./routes/leagueDetails')
+const nexteventleague=require('./routes/nextEventsLeague')
 require('dotenv').config() //GESTISCE LE VARIABILI D'AMBIENTE   
 
 const app = express()
@@ -35,8 +36,8 @@ app.use('/api', team)
 app.use('/api', players)
 app.use('/api', seasons)
 app.use('/api', events)
-
-
+app.use('/api', league)
+app.use('/api', nexteventleague)
 //AVVIA IL SERVER E ASCOLTA SULLA PORTA DEFINITA
 app.listen(port, ()=>{
     console.log(`Server is running on port: ${port}`);

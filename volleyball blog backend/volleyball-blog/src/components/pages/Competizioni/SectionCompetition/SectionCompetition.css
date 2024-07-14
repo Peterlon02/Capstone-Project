@@ -1,0 +1,13 @@
+.main-container{
+    background-color: rgb(16, 54, 16);
+}
+
+.name-title{
+    color: rgba(162, 211, 89, 0.959);
+    margin-top: -0.7rem;
+}
+
+.img-logo{
+    max-height: 8rem;
+}
+
