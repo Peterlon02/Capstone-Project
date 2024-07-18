@@ -9,6 +9,8 @@ import { BrowserRouter as Router,Routes, Route} from 'react-router-dom';
 import SectionTeam from './components/pages/Competizioni/SectionTeam/SectionTeam'
 import SectionSeason from './components/pages/Competizioni/SectionSeason/SectionSeason'
 import SectionMatch from './components/pages/Competizioni/SectionMatch/SectionMatch'
+import SectionPlayer from './components/pages/Competizioni/SectionPlayer/SectionPlayer'
+
 
 function App() {
   return (
@@ -21,9 +23,9 @@ function App() {
           <Route path='/competizioni/:competitionId' element={<SectionCompetition/>}/>
           <Route path='/news' element={<News />}/>
           <Route path='/competizioni/:competitionId/team/:teamId' element={<SectionTeam/>}/>
-          <Route path='/competizioni/:competitionId/season/:season' element={<SectionSeason/>}/>
+          <Route path='/competizioni/:competitionId/season/:seasonId' element={<SectionSeason/>}/>
           <Route path='/competizioni/:competitionId/match/:matchId' element={<SectionMatch />} />
-          
+          <Route path='/competizioni/:competitionId/player/:playerId' element={<SectionPlayer />} />
         </Routes>
 
       </div>
