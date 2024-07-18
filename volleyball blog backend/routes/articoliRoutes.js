@@ -4,11 +4,12 @@ const router= express.Router()
 require('dotenv').config()
 
 
-router.get('/articoli-pallavolo', async (req, res)=>{
+router.get('/articoli-pallavolo/:key', async (req, res)=>{
+    const key=req.params.key
     try{
         const response= await axios.get('https://newsapi.org/v2/everything', {
             params:{
-                q:' Pallavolo',
+                q:key,
                 language:'it',
                 apiKey: process.env.NEWS_API_KEY,
             },

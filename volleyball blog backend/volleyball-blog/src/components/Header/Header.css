@@ -1,7 +1,7 @@
 
 
 .App-header{
-    background-color:#008080;
+    background-color:#367c36;
     color: #fff;
     height: 15rem;
     display: flex;
@@ -15,8 +15,27 @@
 
 }
 
+.style-access{
+    background-color: white;
+    padding: 0.2rem 0.8rem;
+    color: black;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+    margin-right: 2rem;
+}
 
+.style-user{
+    background-color: rgb(236, 45, 45);
+    padding: 0.2rem 0.8rem;
+    color: black;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+    margin-right: 2rem;
+}
 
+.style-access:hover{
+    background-color: red;
+}
 
 @media(min-width:768px){
     

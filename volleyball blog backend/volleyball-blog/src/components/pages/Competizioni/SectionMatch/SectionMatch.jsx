@@ -43,13 +43,25 @@ function SectionMatch(){
                     <ContainerDetails titleDetail='Date' detail={match.dateEvent}/>
                     <ContainerDetails titleDetail='Time' detail={match.strTime}/>
                     <ContainerImg title='Poster' img={match.strPoster}/>
-                    <ContainerImg title='Thumb' img={match.strThumb}/>
-                    <ContainerImg title='SquarePoster' img={match.strSquarePoster}/>
                     <ContainerLink title='League' name1={`/competizioni/${competitionId}`} name2={match.strLeague}/> 
                     <ContainerDetails titleDetail='Season' detail={match.strSeason}/>
                     <ContainerDetails titleDetail='Round' detail={match.intRound}/>
                     </div>
-                    
+                    <div className="col-md-9 pt-4 ">
+                        <div className="container d-flex align-items-center justify-content-center">
+                            <div className="d-flex flex-column  align-items-center">
+                                <img className="img-fluid img-logos" src={match.strHomeTeamBadge}></img>
+                                <h6 className="text-light">{match.intHomeScore}</h6>
+                            </div>
+                            <div className="vstyle text-light">vs</div>
+                            <div className="d-flex flex-column align-items-center">
+                                <img className="img-fluid img-logos" src={match.strAwayTeamBadge}></img>
+                                <h6 className="text-light">{match.intAwayScore}</h6>
+                            </div>
+                        </div>
+                        <ContainerImg title='Fanart' img={match.strFanart}/>
+                        <ContainerImg title='Banner' img={match.strBanner}/>
+                    </div>
                 </div>
             ):<p></p>}
             

@@ -1,0 +1,19 @@
+.container-access{
+    padding: 10rem;
+    
+}
+
+.formstyle{
+
+    padding: 0 12rem;
+}
+
+.inputstyle{
+    border-radius: 0.4rem;
+    padding: 0.2rem;
+}
+
+.main-cont{
+    height: 100vh;
+    background-color: rgb(16, 54, 16);
+}

@@ -10,7 +10,7 @@ function News() {
 useEffect(()=>{
   const fetchArticoli =async()=>{
     try{
-      const response= await axios.get('http://localhost:5000/api/articoli-pallavolo')
+      const response= await axios.get('http://localhost:5000/api/articoli-pallavolo/Pallavolo')
       setArticoli(response.data.articles)
     }catch(error){
       console.error('ERRORE', error)
@@ -19,7 +19,7 @@ useEffect(()=>{
   fetchArticoli()
 }, [])
     return(
-        <div className='row '>
+        <div className='row main-container'>
             {articoli.length>0 ?(
                 articoli.map((articolo, index) => (
                     <div key={index} className=' col-md-4 pt-5'>
