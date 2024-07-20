@@ -18,6 +18,7 @@ const nextEventsTeam=require('./routes/NextEventsTeam')
 const pastEventsTeam=require('./routes/pastEventsTeam')
 const teamDetail=require('./routes/TeamDetail')
 const matchDetails=require('./routes/matchDetails')
+const playerDetails =require('./routes/playerDetail')
 require('dotenv').config() //GESTISCE LE VARIABILI D'AMBIENTE   
 
 const app = express()
@@ -48,6 +49,7 @@ app.use('/api', nextEventsTeam)
 app.use('/api', pastEventsTeam)
 app.use('/api', teamDetail)
 app.use('/api', matchDetails)
+app.use('/api', playerDetails)
 //AVVIA IL SERVER E ASCOLTA SULLA PORTA DEFINITA
 app.listen(port, ()=>{
     console.log(`Server is running on port: ${port}`);

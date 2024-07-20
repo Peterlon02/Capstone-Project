@@ -2,17 +2,33 @@
 
 .App-header{
     background-color:#367c36;
+    background-image: url('https://previews.123rf.com/images/nsit0108/nsit01081906/nsit0108190600258/124579301-volleyball-concept-banner-cartoon-illustration-of-volleyball-vector-concept-banner-for-web-design.jpg');
     color: #fff;
     height: 15rem;
     display: flex;
     flex-direction: column;
     justify-content:space-between;
     padding: 1rem;
+    object-fit: contain;
 }
 
 .nav-link{
     text-decoration: none;
 
+}
+
+.style-link{
+    background-color: black;
+    width: 7rem;
+    text-align: center;
+}
+
+.nav-link.active {
+    color: red;
+}
+
+.nav-link:hover{
+    color: darkred;
 }
 
 .style-access{

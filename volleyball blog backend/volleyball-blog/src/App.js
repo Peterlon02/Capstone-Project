@@ -11,7 +11,7 @@ import SectionSeason from './components/pages/Competizioni/SectionSeason/Section
 import SectionMatch from './components/pages/Competizioni/SectionMatch/SectionMatch'
 import SectionPlayer from './components/pages/Competizioni/SectionPlayer/SectionPlayer'
 import Signup from './components/Header/ContainerSignup/ContainerSignup'
-
+import ChiSiamo from './components/pages/chiSiamo/chiSiamo'
 function AppContent() {
   const location = useLocation();
   const nascondiHeader = ['/Signup'];
@@ -30,6 +30,7 @@ function AppContent() {
         <Route path='/competizioni/:competitionId/match/:matchId' element={<SectionMatch />} />
         <Route path='/competizioni/:competitionId/player/:playerId' element={<SectionPlayer />} />
         <Route path='/Signup' element={<Signup />} />
+        <Route path="/chi-siamo" element={<ChiSiamo />} />
       </Routes>
     </div>
   );

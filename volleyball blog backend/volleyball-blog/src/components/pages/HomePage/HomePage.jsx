@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react'
 import CardHilights from './CardHighlights/CardHighlights'
 import './HomePage.css'
 import CardNews from '../News/Card_News/cardNews'
+import { Link } from 'react-router-dom'
 
 function HomePage(){
     const [articoli, setArticoli]=useState([])
     const [news, setNews]=useState([])
 
-    const listHallOfFame=[{"strPlayer": "Andrea Drews", "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/dwmkms1625473794.jpg",'anni':'37 years old', 'honours':3}, {"strPlayer": "Foluke Gunderson ","strThumb": "https://www.thesportsdb.com/images/media/player/thumb/8t2nau1625488097.jpg", 'anni':'36 years old', 'honours':3}, {"strPlayer": "Kelsey  Robinson","strThumb": "https://www.thesportsdb.com/images/media/player/thumb/plbtv61625489096.jpg", 'anni':'32 years old', 'honours':2}, {"strPlayer": " Kymberly Hill", "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/fwbr1h1625475817.jpg",'anni':'34 years old', 'honours':2}, {"strPlayer": "Chiaka Ogbogu", 'anni':'29 years old', 'honours':1, "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/74p9wf1625489387.jpg",},{"strPlayer": "Jordan Thompson", 'anni':'27 years old', 'honours':1,"strThumb": "https://www.thesportsdb.com/images/media/player/thumb/0f1zw81625474863.jpg",} ]
+    const listHallOfFame=[{"strPlayer": "Andrea Drews", "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/dwmkms1625473794.jpg",'anni':'37 years old', 'honours':3}, {"strPlayer": "Foluke Gunderson ",'competitionId':'5084', 'id':'34190596',"strThumb": "https://www.thesportsdb.com/images/media/player/thumb/8t2nau1625488097.jpg", 'anni':'36 years old', 'honours':3}, {"strPlayer": "Kelsey  Robinson","strThumb": "https://www.thesportsdb.com/images/media/player/thumb/plbtv61625489096.jpg", 'anni':'32 years old', 'honours':2}, {"strPlayer": " Kymberly Hill", "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/fwbr1h1625475817.jpg",'anni':'34 years old', 'honours':2}, {"strPlayer": "Chiaka Ogbogu", 'anni':'29 years old', 'honours':1, "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/74p9wf1625489387.jpg",},{"strPlayer": "Jordan Thompson", 'anni':'27 years old', 'honours':1,"strThumb": "https://www.thesportsdb.com/images/media/player/thumb/0f1zw81625474863.jpg",} ]
     
 useEffect(()=>{
   const fetchArticoli =async()=>{
@@ -44,12 +45,16 @@ useEffect(()=>{
                 <div className='row'>
                   {listHallOfFame.map((player)=>{
                     return (
-                      <div className='col-4 mt-2'>
-                      <img className='img-fluid img-player'  src={player.strThumb}></img>
-                      <h6 className='text-light'>{player.strPlayer}</h6>
-                      <h6 className='text-light'>{player.anni}</h6>
-                      <h6 className='text-light'>honours: {player.honours}</h6>
+                      
+                        <div className='col-4 mt-2'>
+                            <Link to={`/competizioni/${player.competitionId}/player/${player.id}`}>
+                            <img className='img-fluid img-player'  src={player.strThumb}></img>
+                            <h6 className='text-light'>{player.strPlayer}</h6>
+                            <h6 className='text-light'>{player.anni}</h6>
+                            <h6 className='text-light'>honours: {player.honours}</h6>
+                            </Link>
                     </div>
+                      
                     )
                   })}
                   
@@ -107,3 +112,4 @@ useEffect(()=>{
 }
 
 export default HomePage
+
