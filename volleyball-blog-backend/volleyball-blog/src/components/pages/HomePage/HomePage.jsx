@@ -9,14 +9,14 @@ import { Link } from 'react-router-dom'
 function HomePage(){
     const [articoli, setArticoli]=useState([])
     const [news, setNews]=useState([])
-    const API_URL = process.env.REACT_APP_API_URL;
+    const url= process.env.REACT_APP_API_URL
 
     const listHallOfFame=[{"strPlayer": "Andrea Drews", "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/dwmkms1625473794.jpg",'anni':'37 years old', 'honours':3}, {"strPlayer": "Foluke Gunderson ",'competitionId':'5084', 'id':'34190596',"strThumb": "https://www.thesportsdb.com/images/media/player/thumb/8t2nau1625488097.jpg", 'anni':'36 years old', 'honours':3}, {"strPlayer": "Kelsey  Robinson","strThumb": "https://www.thesportsdb.com/images/media/player/thumb/plbtv61625489096.jpg", 'anni':'32 years old', 'honours':2}, {"strPlayer": " Kymberly Hill", "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/fwbr1h1625475817.jpg",'anni':'34 years old', 'honours':2}, {"strPlayer": "Chiaka Ogbogu", 'anni':'29 years old', 'honours':1, "strThumb": "https://www.thesportsdb.com/images/media/player/thumb/74p9wf1625489387.jpg",},{"strPlayer": "Jordan Thompson", 'anni':'27 years old', 'honours':1,"strThumb": "https://www.thesportsdb.com/images/media/player/thumb/0f1zw81625474863.jpg",} ]
     
 useEffect(()=>{
   const fetchArticoli =async()=>{
     try{
-      const response= await axios.get(`${API_URL}/api/highlights`)
+      const response= await axios.get(`${url}/api/highlights`)
       const filteredArticoli= response.data.tvhighlights.filter(articolo => articolo.strThumb  !=="")
       setArticoli(filteredArticoli)
     }catch(error){
@@ -29,7 +29,7 @@ useEffect(()=>{
 useEffect(()=>{
   const fetchArticoli =async()=>{
     try{
-      const response= await axios.get(`${API_URL}/api/articoli-pallavolo/Volleyball`)
+      const response= await axios.get(`${url}/api/articoli-pallavolo/Volleyball`)
       setNews(response.data.articles)
     }catch(error){
       console.error('ERRORE', error)
