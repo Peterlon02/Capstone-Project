@@ -50,6 +50,12 @@ app.use('/api', pastEventsTeam)
 app.use('/api', teamDetail)
 app.use('/api', matchDetails)
 app.use('/api', playerDetails)
+
+app.get('/', (req, res) => {
+    res.send('Backend is up and running!');
+  });
+
+  
 //AVVIA IL SERVER E ASCOLTA SULLA PORTA DEFINITA
 app.listen(port, ()=>{
     console.log(`Server is running on port: ${port}`);
