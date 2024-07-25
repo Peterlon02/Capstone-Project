@@ -16,7 +16,7 @@ function HomePage(){
 useEffect(()=>{
   const fetchArticoli =async()=>{
     try{
-      const response= await axios.get(`https://capstone-project-mq24d195x-peterlyon02s-projects.vercel.app/api/highlights`)
+      const response= await axios.get(`http://localhost:5000/api/highlights`)
       const filteredArticoli= response.data.tvhighlights.filter(articolo => articolo.strThumb  !=="")
       setArticoli(filteredArticoli)
     }catch(error){
@@ -29,7 +29,7 @@ useEffect(()=>{
 useEffect(()=>{
   const fetchArticoli =async()=>{
     try{
-      const response= await axios.get(`https://capstone-project-peterlyon02s-projects.vercel.app/api/articoli-pallavolo/Volleyball`)
+      const response= await axios.get(`http://localhost:5000/api/articoli-pallavolo/Volleyball`)
       setNews(response.data.articles)
     }catch(error){
       console.error('ERRORE', error)
