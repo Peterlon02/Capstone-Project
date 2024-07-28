@@ -22,7 +22,7 @@ function SectionTeam(){
     useEffect(()=>{
         const fetchPlayers =async()=>{
           try{
-            const response= await axios.get('http://localhost:5000/api/player/'+ `${teamId}`)
+            const response= await axios.get('https://capstone-project-alpha-gilt.vercel.app/api/player/'+ `${teamId}`)
             setPlayers(response.data.player)
           }catch(error){
             console.error('ERRORE', error)
