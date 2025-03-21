@@ -19,6 +19,8 @@ const pastEventsTeam=require('./routes/pastEventsTeam')
 const teamDetail=require('./routes/TeamDetail')
 const matchDetails=require('./routes/matchDetails')
 const playerDetails =require('./routes/playerDetail')
+const User=require('./routes/User')
+
 require('dotenv').config() //GESTISCE LE VARIABILI D'AMBIENTE   
 
 const app = express()
@@ -50,6 +52,7 @@ app.use('/api', pastEventsTeam)
 app.use('/api', teamDetail)
 app.use('/api', matchDetails)
 app.use('/api', playerDetails)
+app.use('/api', User)
 
 app.get('/', (req, res) => {
     res.send('Backend is up and running!');

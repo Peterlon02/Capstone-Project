@@ -1,9 +1,11 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
-export const UserContext = createContext();
+const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    const [username, setUsername] = useState('Login');
+    const [username, setUsername] = useState(() => {
+        return localStorage.getItem('username') || '';
+      });
 
     return (
         <UserContext.Provider value={{ username, setUsername }}>
@@ -11,3 +13,5 @@ export const UserProvider = ({ children }) => {
         </UserContext.Provider>
     );
 };
+
+export const useUser = () => useContext(UserContext);

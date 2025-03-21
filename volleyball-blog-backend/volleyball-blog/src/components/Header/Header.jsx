@@ -1,43 +1,44 @@
 import './Header.css';
 import React, { useEffect, useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {UserContext} from '../../UserContext'
+import {useUser} from '../../UserContext'
+import { Button } from 'react-bootstrap';
 
 
 function Header() {
-    const location = useLocation();
-    const { username, setUsername } = useContext(UserContext);
     const [activeLink, setActiveLink] = useState('Home');
+    const {username, setUsername}=useUser()
 
     const handleLinkClick = (linkName) => {
         setActiveLink(linkName);
     };
 
-    useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        const usernameParam = params.get('username');
-        if (usernameParam) {
-            setUsername(usernameParam);
-        }
-    }, [location.search, setUsername]);
+    const handleLogout = () => {
+        localStorage.removeItem('username');
+        setUsername('');
+      };
+
 
     return (
         <header className='App-header'>
             <div className='d-flex text-center justify-content-between'>
                 <div></div>
                 <h1>Volley Blog</h1>
-                {username === 'Login' ? (
-                    <div className='d-flex align-items-center'>
+                    {username==='' ?(
+                        <div className='d-flex align-items-center'>
                         <Link className='text-decoration-none'>
-                            <div className='style-access'>{username}</div>
+                            <div className='style-access'>Login</div>
                         </Link>
                         <Link className='text-decoration-none' to={'/Signup'}>
                             <div className='style-access'>Signup</div>
                         </Link>
                     </div>
-                ) : (
-                    <div className='d-flex align-items-center style-user'>{username}</div>
-                )}
+                    ):(
+                        <div className='d-flex align items center'>
+                            <div className='d-flex align-items-center style-user'>{username}</div>
+                            <button variant='danger' onClick={handleLogout}>Logout</button>
+                        </div>
+                    )}
             </div>
             <div className='row'>
                 <div className='col-md-2 section'>

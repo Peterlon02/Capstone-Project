@@ -12,6 +12,7 @@ import SectionMatch from './components/pages/Competizioni/SectionMatch/SectionMa
 import SectionPlayer from './components/pages/Competizioni/SectionPlayer/SectionPlayer'
 import Signup from './components/Header/ContainerSignup/ContainerSignup'
 import ChiSiamo from './components/pages/chiSiamo/chiSiamo'
+import { UserProvider } from './UserContext';
 function AppContent() {
   const location = useLocation();
   const nascondiHeader = ['/Signup'];
@@ -21,7 +22,7 @@ function AppContent() {
       {!nascondiHeader.includes(location.pathname) && <Header />}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Home/:username' element={''} />
+        <Route path='/Home' element={<Home />} />
         <Route path='/competizioni' element={<Competizioni />} />
         <Route path='/competizioni/:competitionId' element={<SectionCompetition />} />
         <Route path='/news' element={<News />} />
@@ -39,9 +40,12 @@ function AppContent() {
 
 function App() {
   return(
-    <Router >
-     <AppContent/>
-    </Router>
+    
+      <Router >
+        <UserProvider>
+        <AppContent/>
+        </UserProvider>
+      </Router>
   )
 }
 

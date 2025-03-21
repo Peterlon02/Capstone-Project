@@ -6,12 +6,12 @@ import ContainerDetails from '../SectionCompetition/ComponentsCompetition/Contai
 import ContainerImg from '../SectionCompetition/ComponentsCompetition/ContainerImg/ContainerImg';
 import ContainerLink from '../SectionCompetition/ComponentsCompetition/ContainerLink/ContainerLink';
 import CommentSection from '../../Competizioni/SectionMatch/CommentSection/CommentSection'
-import { UserContext } from '../../../../UserContext'; // Importa il contesto
+import { useUser } from '../../../../UserContext'; // Importa il contesto
 
 function SectionMatch() {
     const { matchId, competitionId } = useParams();
     const [match, setMatch] = useState([]);
-    const { username } = useContext(UserContext);
+    const { username } = useUser();
 
     useEffect(() => {
         const fetchMatch = async () => {
