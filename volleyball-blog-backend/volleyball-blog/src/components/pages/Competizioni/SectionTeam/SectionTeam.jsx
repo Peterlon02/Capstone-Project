@@ -22,7 +22,7 @@ function SectionTeam(){
     useEffect(()=>{
         const fetchPlayers =async()=>{
           try{
-            const response= await axios.get('https://capstone-project-alpha-gilt.vercel.app/api/player/'+ `${teamId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/player/`+ `${teamId}`)
             setPlayers(response.data.player)
           }catch(error){
             console.error('ERRORE', error)
@@ -34,7 +34,7 @@ function SectionTeam(){
       useEffect(()=>{
         const fetchEvents =async()=>{
           try{
-            const response= await axios.get('http://localhost:5000/api/nextevents/team/'+ `${teamId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/nextevents/team/`+ `${teamId}`)
             setNextEvents(response.data.events)
           }catch(error){
             console.error('ERRORE', error)
@@ -46,7 +46,7 @@ function SectionTeam(){
       useEffect(()=>{
         const fetchEvents =async()=>{
           try{
-            const response= await axios.get('http://localhost:5000/api/pastevents/team/'+ `${teamId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/pastevents/team/`+ `${teamId}`)
             setPastEvents(response.data.results)
           }catch(error){
             console.error('ERRORE', error)
@@ -58,7 +58,7 @@ function SectionTeam(){
       useEffect(()=>{
         const fetchDetails =async()=>{
           try{
-            const response= await axios.get('http://localhost:5000/api/teamdetail/'+ `${teamId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/teamdetail/`+ `${teamId}`)
             setTeamDetails(response.data.teams)
           }catch(error){
             console.error('ERRORE', error)

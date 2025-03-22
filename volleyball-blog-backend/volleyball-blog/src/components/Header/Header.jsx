@@ -26,7 +26,7 @@ function Header() {
                 <h1>Volley Blog</h1>
                     {username==='' ?(
                         <div className='d-flex align-items-center'>
-                        <Link className='text-decoration-none'>
+                        <Link className='text-decoration-none' to={'/Login'}>
                             <div className='style-access'>Login</div>
                         </Link>
                         <Link className='text-decoration-none' to={'/Signup'}>

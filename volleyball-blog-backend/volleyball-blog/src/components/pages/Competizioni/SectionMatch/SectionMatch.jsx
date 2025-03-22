@@ -16,7 +16,7 @@ function SectionMatch() {
     useEffect(() => {
         const fetchMatch = async () => {
             try {
-                const response = await axios.get(`https://capstone-project-alpha-gilt.vercel.app/api/eventdetails/${matchId}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/eventdetails/${matchId}`);
                 setMatch(response.data.events[0]);
             } catch (error) {
                 console.error('ERRORE', error);

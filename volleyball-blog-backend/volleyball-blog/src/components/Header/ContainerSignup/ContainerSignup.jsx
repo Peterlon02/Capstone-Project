@@ -32,7 +32,7 @@ function ContainerSignup(){
         e.preventDefault();
         try{
             const formData={username: Username, email:email, password: Password}
-            const response= await axios.post(`http://localhost:5000/api/user/register`, formData)
+            const response= await axios.post(`${process.env.REACT_APP_API_URL}/api/user/register`, formData)
 
             if (response.status === 201) {
                 alert('Registrazione completata!');
@@ -43,9 +43,6 @@ function ContainerSignup(){
                   }
                   navigate(`/Home`);
               }
-            if(response.status ===400){
-                setUserRegistrated(true)
-            }
 
         }catch (error) {
             if (error.response && error.response.status === 400) {

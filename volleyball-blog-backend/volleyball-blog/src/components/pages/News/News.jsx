@@ -10,7 +10,7 @@ function News() {
 useEffect(()=>{
   const fetchArticoli =async()=>{
     try{
-      const response= await axios.get('https://capstone-project-alpha-gilt.vercel.app/api/articoli-pallavolo/Pallavolo')
+      const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/articoli-pallavolo/Pallavolo`)
       setArticoli(response.data.articles)
     }catch(error){
       console.error('ERRORE', error)

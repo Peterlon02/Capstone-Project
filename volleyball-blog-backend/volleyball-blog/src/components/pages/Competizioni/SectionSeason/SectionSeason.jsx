@@ -21,7 +21,7 @@ function SectionSeason(){
     useEffect(()=>{
         const fetchSeason =async()=>{
           try{
-            const response = await axios.get('https://capstone-project-alpha-gilt.vercel.app/api/event/'+ `${competitionId}/`+  `${seasonId}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/event/`+ `${competitionId}/`+  `${seasonId}`);
             setSeason(response.data.events)
           }catch(error){
             console.error('ERRORE', error)
@@ -33,7 +33,7 @@ function SectionSeason(){
       useEffect(()=>{
         const fetchLeague =async()=>{
           try{
-            const response= await axios.get(`https://capstone-project-alpha-gilt.vercel.app/api/league/`+`${competitionId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/league/`+`${competitionId}`)
             setLeague(response.data.leagues)
           }catch(error){
             console.error('ERRORE', error)

@@ -20,7 +20,7 @@ function SectionCompetition(){
     useEffect(()=>{
         const fetchTeams =async()=>{
           try{
-            const response= await axios.get(`https://capstone-project-alpha-gilt.vercel.app/api/team/`+`${competitionId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/team/`+`${competitionId}`)
             setTeams(response.data.teams)
           }catch(error){
             console.error('ERRORE', error)
@@ -32,7 +32,7 @@ function SectionCompetition(){
       useEffect(()=>{
         const fetchSeasons =async()=>{
           try{
-            const response= await axios.get(`https://capstone-project-alpha-gilt.vercel.app/api/season/`+`${competitionId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/season/`+`${competitionId}`)
             setSeasons(response.data.seasons)
           }catch(error){
             console.error('ERRORE', error)
@@ -44,7 +44,7 @@ function SectionCompetition(){
       useEffect(()=>{
         const fetchLeague =async()=>{
           try{
-            const response= await axios.get(`https://capstone-project-alpha-gilt.vercel.app/api/league/`+`${competitionId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/league/`+`${competitionId}`)
             setLeague(response.data.leagues)
           }catch(error){
             console.error('ERRORE', error)
@@ -56,7 +56,7 @@ function SectionCompetition(){
       useEffect(()=>{
         const fetchNextEventsLeague =async()=>{
           try{
-            const response= await axios.get(`https://capstone-project-alpha-gilt.vercel.app/api/nextevent/`+`${competitionId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/nextevent/`+`${competitionId}`)
             setEvents(response.data.events)
           }catch(error){
             console.error('ERRORE', error)
@@ -68,7 +68,7 @@ function SectionCompetition(){
       useEffect(()=>{
         const fetchPastEventsLeague =async()=>{
           try{
-            const response= await axios.get(`https://capstone-project-alpha-gilt.vercel.app/api/pastevent/`+`${competitionId}`)
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/pastevent/`+`${competitionId}`)
             setPastEvents(response.data.events)
           }catch(error){
             console.error('ERRORE', error)

@@ -11,7 +11,7 @@ function Competizioni(){
     useEffect(()=>{
         const fetchLeagues =async()=>{
           try{
-            const response= await axios.get('https://capstone-project-alpha-gilt.vercel.app/api/leagues')
+            const response= await axios.get(`${process.env.REACT_APP_API_URL}/api/leagues`)
             setLeagues(response.data.countries)
           }catch(error){
             console.error('ERRORE', error)
