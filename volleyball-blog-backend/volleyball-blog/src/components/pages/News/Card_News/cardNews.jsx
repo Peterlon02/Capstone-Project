@@ -3,7 +3,7 @@ import React from "react";
 function CardNews(prop){
     return(
         <div className='card ' style={{backgroundColor:"green",}}>
-            <img src={prop.urlToImage} height={300} alt='' className='card-img-top'></img>
+            <img src={prop.urlToImage} height={300} alt='Decorative Image' className='card-img-top'></img>
             <div className='card-body'>
                   <h4 className='card-title text-light'>{prop.title}</h4>
                   <p className='text-light card-text'>{prop.description}</p>
